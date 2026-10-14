@@ -9,7 +9,7 @@
 <meta property="og:description" content="I write the docs, build the demos, run the stages and grow the communities that make developers stay.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hakierka.github.io/">
-<meta property="og:image" content="https://hakierka.github.io/photos/blocksplit-stage.jpg">
+<meta property="og:image" content="https://hakierka.github.io/photos/face-cup.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap">
 <style>
@@ -35,9 +35,14 @@ a:focus-visible,.btn:focus-visible{outline:4px solid var(--orange);outline-offse
 .cur{display:inline-block;width:.5em;height:.9em;background:var(--pink);margin-left:6px;animation:b 1s steps(2) infinite;vertical-align:-.05em}
 @keyframes b{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.cur{animation:none}html{scroll-behavior:auto}}
-.strip{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:12px;margin:0 0 8px}
-.strip img{width:100%;height:220px;object-fit:cover;border:3px solid var(--line);box-shadow:6px 6px 0 var(--blue);display:block}
-@media (max-width:800px){.strip{grid-template-columns:1fr}.strip img{height:240px}}
+.strip{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
+.strip img{width:100%;height:min(52vw,420px);object-fit:cover;object-position:center 18%;border:3px solid var(--line);box-shadow:6px 6px 0 var(--blue);display:block}
+@media (max-width:800px){.strip{grid-template-columns:1fr}.strip img{height:360px}}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:0;padding:0;list-style:none}
+.cards a{display:block;text-decoration:none;background:var(--card);border:3px solid var(--line);box-shadow:5px 5px 0 var(--pink);color:var(--ink)}
+.cards a:hover{background:var(--pink);color:#fff}
+.cards img{width:100%;height:140px;object-fit:cover;display:block;border-bottom:3px solid var(--line)}
+.cards span{display:block;padding:12px 14px;font-size:15px;line-height:1.35}
 section{padding-top:56px}
 .box{background:var(--card);border:3px solid var(--line);box-shadow:6px 6px 0 var(--blue);padding:16px 18px}
 .pic{width:100%;height:auto;border:3px solid var(--line);box-shadow:8px 8px 0 var(--pink);display:block}
@@ -64,7 +69,7 @@ footer p{max-width:62ch}
 <header class="hero">
 <h1>Amy Waliszewska<span class="cur" aria-hidden="true"></span></h1>
 <p class="sub">Developer relations, technical content and community.</p>
-<p class="lede">Ten years in tech, eight in DevRel. I write the docs, build the demos, run the stages and grow the communities that make developers stay. I studied law, then I learned to ship websites, then I learned the rest of it because the industry would not sit still. Blue hair, tattoos, very good documentation. Based in Stockholm.</p>
+<p class="lede">Ten years in tech, eight in DevRel. I write the docs, build the demos, run the stages and grow the communities that make developers stay. Blue hair, tattoos, very good documentation. Based in Stockholm.</p>
 <div class="btns">
 <a class="btn" href="#photos">Start</a>
 <a class="btn alt" href="mailto:amy.waliszewska@gmail.com">Email me</a>
@@ -73,14 +78,13 @@ footer p{max-width:62ch}
 </header>
 
 <div id="photos" class="strip">
-<img src="photos/blocksplit-stage.jpg" alt="Amy on stage at Blocksplit. Concordium talk. A cat on the slide.">
-<img src="photos/concordium-academy-booth.jpg" alt="Amy at a Concordium Academy booth">
-<img src="photos/booth.jpg" alt="Amy at a hackathon booth, blue hair, helping someone at a laptop">
+<img src="photos/face-cup.jpg" alt="Amy with blue hair, Storacha cup, conference">
+<img src="photos/face-garden.jpg" alt="Amy at a conference with a plush toy and Infinite Garden lanyard">
 </div>
 
 <section id="stages">
 <h2><span>1</span>Stages</h2>
-<p class="note">World stages, not a logo wall. If someone told you I only write Slack messages, send them here.</p>
+<p class="note">Talks, booths, panels. The rooms, not a logo strip.</p>
 <ul class="gallery">
 <li class="wide">
 <figure>
@@ -153,14 +157,14 @@ footer p{max-width:62ch}
 <li class="box"><b>Concordium</b>Concordium Academy with Rust tutorials, workshops at major events, ambassador program.</li>
 <li class="box"><b>Cudos</b>Mainnet launch, Discord +60%.</li>
 <li class="box"><b>Geek Girls Carrots</b>VP of a global community of 250,000 women and non-binary people in tech. 60+ partner brands.</li>
-<li class="box"><b>EQT</b>QA on an internal LLM used by ~2,000 people. 13 interviews, ~480 users, 16 segments, 190 AI Champions. Same job as DevRel, pointed inward. Not the whole story. One chapter.</li>
+<li class="box"><b>EQT</b>QA on an internal LLM used by ~2,000 people. 13 interviews, ~480 users, 16 segments, 190 AI Champions. Same job as DevRel, pointed inward.</li>
 <li class="box"><b>Avassa</b>Head of Developer Advocacy, 2021–2022.</li>
 </ul>
 </section>
 
 <section id="code">
 <h2><span>3</span>Stuff you can actually click</h2>
-<p class="note">A lot of the real work is under NDA. I am not inventing a fake career. These three repos are the public shape of the private work: evals, adoption, docs an agent can read.</p>
+<p class="note">A lot of the real traces stay under NDA. These three repos are the public version of the shape: evals, adoption, docs an agent can read.</p>
 <ul class="list">
 <li class="box">
 <b><a href="https://github.com/hakierka/liveops-evals">liveops-evals</a></b>
@@ -206,22 +210,41 @@ footer p{max-width:62ch}
 
 <section id="words">
 <h2><span>5</span>Words</h2>
-<ul class="cols">
-<li><a href="https://medium.com/@amywal/ai-meets-live-streaming-how-to-use-comfystream-like-a-pro-0b729d878637">AI meets live streaming: how to use ComfyStream like a pro</a></li>
-<li><a href="https://medium.com/web-zero/how-documentation-can-create-web3-developers-24fc5d2d1a81">How documentation can create web3 developers</a></li>
-<li><a href="https://medium.com/@amywal/how-i-moved-a-bunch-of-cats-to-web3-storage-and-you-can-too-e1dcbd591ee7">How I moved a bunch of cats to Web3.Storage</a></li>
-<li><a href="https://blog.chromia.com/the-case-for-rell-a-new-blockchain-language/">The case for Rell, a new blockchain language</a></li>
-<li><a href="https://blog.chromia.com/what-is-relational-blockchain-and-why-should-you-use-it/">What is relational blockchain and why should you use it</a></li>
-<li><a href="https://medium.com/web-zero/no-l2s-dont-solve-the-trilemma-761fe7fe8a76">No, L2s don't solve the trilemma</a></li>
-<li><a href="https://medium.com/@amywal/how-i-found-the-it-industry-in-africa-much-more-open-minded-than-in-europe-a18fe1e5951a">How I found the IT industry in Africa more open-minded than in Europe</a></li>
-<li><a href="https://medium.com/@amywal">More on Medium</a></li>
+<ul class="cards">
+<li><a href="https://medium.com/@amywal/how-i-moved-a-bunch-of-cats-to-web3-storage-and-you-can-too-e1dcbd591ee7"><img src="thumbs/cats.jpg" alt=""><span>How I moved a bunch of cats to Web3.Storage</span></a></li>
+<li><a href="https://medium.com/@amywal/ai-meets-live-streaming-how-to-use-comfystream-like-a-pro-0b729d878637"><img src="thumbs/comfystream.jpg" alt=""><span>How to use ComfyStream like a pro</span></a></li>
+<li><a href="https://medium.com/web-zero/how-documentation-can-create-web3-developers-24fc5d2d1a81"><img src="thumbs/docs-web3.jpg" alt=""><span>How documentation can create web3 developers</span></a></li>
+<li><a href="https://medium.com/web-zero/no-l2s-dont-solve-the-trilemma-761fe7fe8a76"><img src="thumbs/trilemma.jpg" alt=""><span>No, L2s don't solve the trilemma</span></a></li>
+<li><a href="https://medium.com/@amywal/how-i-found-the-it-industry-in-africa-much-more-open-minded-than-in-europe-a18fe1e5951a"><img src="thumbs/africa.jpg" alt=""><span>IT in Africa, more open-minded than in Europe</span></a></li>
+<li><a href="https://blog.chromia.com/the-case-for-rell-a-new-blockchain-language/"><img src="thumbs/chromia-hello.jpg" alt=""><span>The case for Rell</span></a></li>
+<li><a href="https://blog.chromia.com/what-is-relational-blockchain-and-why-should-you-use-it/"><img src="thumbs/eth-killer.jpg" alt=""><span>What is relational blockchain</span></a></li>
+<li><a href="https://github.com/hakierka/TenderlySDK-example"><img src="thumbs/tenderly.jpg" alt=""><span>Tenderly simulations</span></a></li>
+<li><a href="https://tvn24.pl/biznes/tech/kamila-sidor-oraz-amanda-waliszewska-byly-goscmi-tvn24-bis-ra638324-4471026"><img src="thumbs/tvn-article.jpg" alt=""><span>TVN24 Bis. Kariera w programowaniu.</span></a></li>
+<li><a href="https://time.com/6156672/lgbtq-ukraine-refugees-russia/"><img src="thumbs/time.jpg" alt=""><span>TIME, Queers for Ukraine</span></a></li>
+</ul>
+</section>
+
+<section id="videos">
+<h2><span>6</span>On camera</h2>
+<p class="note">Talks, Q&amp;As, Polish TV and the odd activist interview. Thumbnails, then you click, like a human.</p>
+<ul class="cards">
+<li><a href="https://youtu.be/1i6_LDYLS7E"><img src="thumbs/yt-1i6_LDYLS7E.jpg" alt=""><span>Concordium community engagement framework</span></a></li>
+<li><a href="https://youtu.be/ZjggvgjmZuE"><img src="thumbs/yt-ZjggvgjmZuE.jpg" alt=""><span>T3rn executors, multichain</span></a></li>
+<li><a href="https://youtu.be/9rWPZzJOG6I"><img src="thumbs/yt-9rWPZzJOG6I.jpg" alt=""><span>Causevest interview</span></a></li>
+<li><a href="https://www.youtube.com/watch?v=EY5yBTEY6Yw"><img src="thumbs/yt-EY5yBTEY6Yw.jpg" alt=""><span>AfriDevCon 2019</span></a></li>
+<li><a href="https://www.youtube.com/watch?v=NT-N0zEwBuU"><img src="thumbs/yt-NT-N0zEwBuU.jpg" alt=""><span>Chromia Q&amp;A: users and developers</span></a></li>
+<li><a href="https://www.youtube.com/watch?v=N_snvNGy2O8"><img src="thumbs/yt-N_snvNGy2O8.jpg" alt=""><span>Chromia Q&amp;A: why gaming</span></a></li>
+<li><a href="https://www.youtube.com/watch?v=eUhvIzaH9uQ"><img src="thumbs/yt-eUhvIzaH9uQ.jpg" alt=""><span>Jak z prawniczki zostałam programistą</span></a></li>
+<li><a href="https://www.youtube.com/watch?v=L5yd829DFFM"><img src="thumbs/yt-L5yd829DFFM.jpg" alt=""><span>Przekraczaj granice. Pracuj gdzie chcesz</span></a></li>
+<li><a href="https://www.youtube.com/live/hKGTGIcnX7Q"><img src="thumbs/yt-hKGTGIcnX7Q.jpg" alt=""><span>Seksizm w pracy</span></a></li>
 </ul>
 </section>
 
 <section id="side-quests">
-<h2><span>6</span>Side quests</h2>
+<h2><span>7</span>Side quests</h2>
 <ul class="list">
-<li class="box"><b>Queers for Ukraine.</b> When Russia invaded in 2022, I helped organize queer collectives across Poland, Sweden, Germany and the US to get over 2,000 people out. <a href="https://time.com/6156672/lgbtq-ukraine-refugees-russia/">Covered by TIME</a>.</li>
+<li class="box"><b>Queers for Ukraine.</b> When Russia invaded in 2022, I helped organize queer collectives across Poland, Sweden, Germany and the US to get over 2,000 people out. <a href="https://time.com/6156672/lgbtq-ukraine-refugees-russia/">Covered by TIME</a>.
+<img class="shot" src="thumbs/time.jpg" alt="TIME article screenshot"></li>
 <li class="box"><b>DejMadce.</b> 1,000 PLN to caregivers of people with disabilities, no questions about how they spend it. Raised 86,645 PLN.</li>
 </ul>
 </section>
