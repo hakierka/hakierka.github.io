@@ -18,44 +18,46 @@ html{scroll-padding-top:12px;scroll-behavior:smooth}
 @media (prefers-color-scheme:dark){:root{--bg:#190B33;--ink:#FFF6EC;--card:#241247;--muted:#BBA9DD;--line:#FFF6EC;color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Space Grotesk",system-ui,-apple-system,Segoe UI,sans-serif}
-main{max-width:1040px;margin:0 auto;padding:40px 20px 72px}
+main{max-width:1000px;margin:0 auto;padding:48px 20px 72px}
 h1,h2{font-family:Silkscreen,"Courier New",monospace;font-weight:700}
-h1{font-size:clamp(32px,7.2vw,72px);line-height:.95;margin:0 0 18px;text-shadow:5px 5px 0 var(--blue);overflow-wrap:anywhere}
+h1{font-size:clamp(34px,8.5vw,88px);line-height:1;margin:0 0 20px;text-shadow:5px 5px 0 var(--blue);overflow-wrap:anywhere}
 h2{font-size:clamp(22px,4vw,34px);line-height:1.15;margin:0 0 20px}
 h2 span{background:var(--pink);color:#fff;padding:2px 10px;margin-right:12px;display:inline-block}
 a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--pink);text-decoration-thickness:3px;text-underline-offset:3px}
 a:hover{background:var(--pink);color:#fff}
 a:focus-visible,.btn:focus-visible{outline:4px solid var(--orange);outline-offset:3px}
-.hero p.sub{font-size:clamp(19px,3vw,26px);max-width:38ch;margin:0 0 14px;font-weight:700}
-.hero p.lede{max-width:62ch;color:var(--muted);margin:0 0 22px}
-.btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}
-.btn{font-family:Silkscreen,monospace;font-weight:700;font-size:16px;text-decoration:none;padding:12px 20px;border:3px solid var(--line);background:var(--orange);color:#190B33;box-shadow:5px 5px 0 var(--line);display:inline-block}
+.top{display:grid;grid-template-columns:1fr 220px;gap:28px;align-items:start;margin-bottom:8px}
+.top img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 18%;border:3px solid var(--line);box-shadow:6px 6px 0 var(--blue);display:block}
+@media (max-width:720px){.top{grid-template-columns:1fr}.top img{max-width:280px}}
+.hero p.sub{font-size:clamp(19px,3vw,26px);max-width:34ch;margin:0 0 14px;font-weight:700}
+.hero p.lede{max-width:58ch;color:var(--muted);margin:0 0 26px}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{font-family:Silkscreen,monospace;font-weight:700;font-size:18px;text-decoration:none;padding:12px 22px;border:3px solid var(--line);background:var(--orange);color:#190B33;box-shadow:5px 5px 0 var(--line);display:inline-block}
 .btn.alt{background:var(--card);color:var(--ink)}
 .btn:hover{background:var(--pink);color:#fff;transform:translate(2px,2px);box-shadow:3px 3px 0 var(--line)}
 .cur{display:inline-block;width:.5em;height:.9em;background:var(--pink);margin-left:6px;animation:b 1s steps(2) infinite;vertical-align:-.05em}
 @keyframes b{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.cur{animation:none}html{scroll-behavior:auto}}
-.strip{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 8px}
-.strip img{width:100%;height:min(52vw,420px);object-fit:cover;object-position:center 18%;border:3px solid var(--line);box-shadow:6px 6px 0 var(--blue);display:block}
-@media (max-width:800px){.strip{grid-template-columns:1fr}.strip img{height:360px}}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:0;padding:0;list-style:none}
-.cards a{display:block;text-decoration:none;background:var(--card);border:3px solid var(--line);box-shadow:5px 5px 0 var(--pink);color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:0;padding:0;list-style:none}
+@media (max-width:800px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.cards{grid-template-columns:1fr}}
+.cards a{display:block;text-decoration:none;background:var(--card);border:3px solid var(--line);box-shadow:5px 5px 0 var(--pink);color:var(--ink);height:100%}
 .cards a:hover{background:var(--pink);color:#fff}
 .cards img{width:100%;height:140px;object-fit:cover;display:block;border-bottom:3px solid var(--line)}
 .cards span{display:block;padding:12px 14px;font-size:15px;line-height:1.35}
-section{padding-top:56px}
+section{padding-top:60px}
 .box{background:var(--card);border:3px solid var(--line);box-shadow:6px 6px 0 var(--blue);padding:16px 18px}
-.pic{width:100%;height:auto;border:3px solid var(--line);box-shadow:8px 8px 0 var(--pink);display:block}
 .scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin:0;padding:0;list-style:none}
 .scores b{font-family:Silkscreen,monospace;display:block;color:var(--pink);font-size:19px;margin-bottom:4px}
 .list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin:0;padding:0;list-style:none}
 .list span{display:block;color:var(--muted);font-size:15px;overflow-wrap:anywhere}
 .shot{width:100%;height:auto;border:3px solid var(--line);display:block;margin:10px 0 0}
-.shots{display:grid;gap:10px;margin-top:10px}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:0;padding:0;list-style:none}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 22px;padding:0;list-style:none}
+@media (max-width:800px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.gallery{grid-template-columns:1fr}}
+.gallery figure{margin:0}
+.gallery img{width:100%;height:180px;object-fit:cover;border:3px solid var(--line);box-shadow:5px 5px 0 var(--pink);display:block}
 .gallery figcaption{font-size:14px;color:var(--muted);margin-top:6px}
-.wide{grid-column:1 / -1}
-@media (min-width:800px){.wide{grid-column:span 2}}
 .cols{columns:2 280px;column-gap:28px;margin:0;padding:0;list-style:none}
 .cols li{padding:6px 0;break-inside:avoid;overflow-wrap:anywhere}
 .note{color:var(--muted);max-width:62ch}
@@ -65,6 +67,7 @@ footer p{max-width:62ch}
 </head>
 <body>
 <main>
+<div class="top">
 <header class="hero">
 <h1>Amy Waliszewska<span class="cur" aria-hidden="true"></span></h1>
 <p class="sub">Developer relations, technical content and community.</p>
@@ -75,10 +78,7 @@ footer p{max-width:62ch}
 <a class="btn alt" href="cv.pdf">CV</a>
 </div>
 </header>
-
-<div id="photos" class="strip">
-<img src="photos/face-cup.jpg" alt="Amy at a conference with a Storacha cup">
-<img src="photos/face-garden.jpg" alt="Amy at a conference with a plush toy and Infinite Garden lanyard">
+<img src="photos/face-cup.jpg" alt="Amy Waliszewska">
 </div>
 
 <section id="scores">
@@ -94,98 +94,8 @@ footer p{max-width:62ch}
 </ul>
 </section>
 
-<section id="stages">
-<h2><span>2</span>Stages</h2>
-<ul class="gallery">
-<li>
-<figure>
-<img class="pic" src="photos/xrp-women-web3.jpg" alt="Women in Web3 panel, XRP Ledger">
-<figcaption>Women in Web3 panel, XRP Ledger</figcaption>
-</figure>
-</li>
-<li class="wide">
-<figure>
-<img class="pic" src="photos/afridevcon.jpg" alt="AfriDevCon, Addis Ababa 2019">
-<figcaption>AfriDevCon, Addis Ababa 2019</figcaption>
-</figure>
-</li>
-<li>
-<figure>
-<img class="pic" src="photos/unitech.jpg" alt="Unitech Hackathon, Stockholm 2019">
-<figcaption>Unitech Hackathon, Stockholm 2019</figcaption>
-</figure>
-</li>
-<li>
-<figure>
-<img class="pic" src="photos/storacha-cup.jpg" alt="Storacha booth">
-<figcaption>Devcon Bangkok 2024</figcaption>
-</figure>
-</li>
-<li>
-<figure>
-<img class="pic" src="photos/nbx-warsaw.jpg" alt="Next Block Expo, Warsaw">
-<figcaption>Next Block Expo, Warsaw</figcaption>
-</figure>
-</li>
-<li>
-<figure>
-<img class="pic" src="photos/pangina-storacha.jpg" alt="Pangina Heals and Storacha">
-<figcaption>Hot Ones &amp; Zeros, Bangkok</figcaption>
-</figure>
-</li>
-</ul>
-<ul class="list" style="margin-top:20px">
-<li class="box">Aggregation Summit</li>
-<li class="box">Blocksplit: keynote and workshop</li>
-<li class="box">DAS London</li>
-<li class="box">ETHGlobal, judge for Storacha</li>
-<li class="box">Storacha Halloween Hackathon 2024, with Taikai</li>
-</ul>
-</section>
-
-<section id="code">
-<h2><span>3</span>On GitHub</h2>
-<ul class="list">
-<li class="box">
-<b><a href="https://github.com/hakierka/liveops-evals">liveops-evals</a></b>
-<span>A desk agent for a fake live game. Golden questions, permission leaks, one refund case I still have not fixed.</span>
-<div class="shots">
-<img class="shot" src="shots/liveops-evals.png" alt="Eval scorecard, 6 pass, 1 known miss">
-<img class="shot" src="shots/liveops-jailbreak.png" alt="Jailbreak ticket">
-<img class="shot" src="shots/liveops-refund.png" alt="Refund docs disagree">
-</div>
-</li>
-<li class="box">
-<b><a href="https://github.com/hakierka/who-uses-this">who-uses-this</a></b>
-<span>Internal tools die because twelve people use them and everyone else tried once in April. 480 fake people, 16 segments, a workshop that uses their files.</span>
-<div class="shots">
-<img class="shot" src="shots/who-uses-this.png" alt="16 adoption segments">
-<img class="shot" src="shots/who-workshop.png" alt="45 minute workshop clock">
-</div>
-</li>
-<li class="box">
-<b><a href="https://github.com/hakierka/docs-the-agent-can-read">docs-the-agent-can-read</a></b>
-<span>llms.txt, OpenAPI, error codes, a tiny MCP. Same files for a person and a model.</span>
-<div class="shots">
-<img class="shot" src="shots/docs-the-agent-can-read.png" alt="MCP selftest">
-<img class="shot" src="shots/docs-errors.png" alt="Error catalogue">
-</div>
-</li>
-</ul>
-<p class="note">Tutorials and demos</p>
-<ul class="cols">
-<li><a href="https://github.com/hakierka/Merkle-Proofs-Tutorial">Merkle Proofs Tutorial</a></li>
-<li><a href="https://github.com/storacha/learnyouw3up">learnyouw3up, a workshopper for Storacha</a></li>
-<li><a href="https://github.com/hakierka/storacha-python-client">Storacha Python client</a></li>
-<li><a href="https://github.com/hakierka/TenderlySDK-example">Tenderly SDK example</a></li>
-<li><a href="https://github.com/hakierka/http-cat-to-web3storage">http-cat-to-web3storage</a></li>
-<li><a href="https://github.com/hakierka/pear-pong">pear-pong</a></li>
-<li><a href="https://github.com/hakierka">All repositories</a></li>
-</ul>
-</section>
-
 <section id="docs">
-<h2><span>4</span>Docs I wrote</h2>
+<h2><span>2</span>Docs I wrote</h2>
 <p class="note">Documentation is the first product experience a developer has. These are the sites I created, rewrote or co-created.</p>
 <ul class="list">
 <li class="box"><a href="https://rell.chromia.com">Chromia</a><span>rell.chromia.com</span></li>
@@ -198,9 +108,57 @@ footer p{max-width:62ch}
 </ul>
 </section>
 
+<section id="stages">
+<h2><span>3</span>Stages</h2>
+<ul class="gallery">
+<li>
+<figure>
+<img src="photos/xrp-women-web3.jpg" alt="Women in Web3 panel, XRP Ledger">
+<figcaption>Women in Web3 panel, XRP Ledger</figcaption>
+</figure>
+</li>
+<li>
+<figure>
+<img src="photos/afridevcon.jpg" alt="AfriDevCon, Addis Ababa 2019">
+<figcaption>AfriDevCon, Addis Ababa 2019</figcaption>
+</figure>
+</li>
+<li>
+<figure>
+<img src="photos/unitech.jpg" alt="Unitech Hackathon, Stockholm 2019">
+<figcaption>Unitech Hackathon, Stockholm 2019</figcaption>
+</figure>
+</li>
+<li>
+<figure>
+<img src="photos/nbx-warsaw.jpg" alt="Next Block Expo, Warsaw">
+<figcaption>Next Block Expo, Warsaw</figcaption>
+</figure>
+</li>
+<li>
+<figure>
+<img src="photos/pangina-storacha.jpg" alt="Hot Ones and Zeros, Bangkok">
+<figcaption>Hot Ones &amp; Zeros, Bangkok</figcaption>
+</figure>
+</li>
+<li>
+<figure>
+<img src="photos/face-garden.jpg" alt="Devcon Bangkok 2024">
+<figcaption>Devcon Bangkok 2024</figcaption>
+</figure>
+</li>
+</ul>
+<ul class="list">
+<li class="box">Aggregation Summit</li>
+<li class="box">Blocksplit: keynote and workshop</li>
+<li class="box">DAS London</li>
+<li class="box">ETHGlobal, judge for Storacha</li>
+<li class="box">Storacha Halloween Hackathon 2024, with Taikai</li>
+</ul>
+</section>
+
 <section id="words">
-<h2><span>5</span>Words</h2>
-<p class="note">Articles I wrote.</p>
+<h2><span>4</span>Words</h2>
 <ul class="cards">
 <li><a href="https://medium.com/@amywal/ai-meets-live-streaming-how-to-use-comfystream-like-a-pro-0b729d878637"><img src="thumbs/comfystream.jpg" alt=""><span>AI meets live streaming: how to use ComfyStream like a pro</span></a></li>
 <li><a href="https://medium.com/web-zero/how-documentation-can-create-web3-developers-24fc5d2d1a81"><img src="thumbs/docs-web3.jpg" alt=""><span>How documentation can create web3 developers</span></a></li>
@@ -209,13 +167,12 @@ footer p{max-width:62ch}
 <li><a href="https://blog.chromia.com/what-is-relational-blockchain-and-why-should-you-use-it/"><img src="thumbs/eth-killer.jpg" alt=""><span>What is relational blockchain and why should you use it</span></a></li>
 <li><a href="https://medium.com/web-zero/no-l2s-dont-solve-the-trilemma-761fe7fe8a76"><img src="thumbs/trilemma.jpg" alt=""><span>No, L2s don't solve the trilemma</span></a></li>
 <li><a href="https://medium.com/@amywal/how-i-found-the-it-industry-in-africa-much-more-open-minded-than-in-europe-a18fe1e5951a"><img src="thumbs/africa.jpg" alt=""><span>How I found the IT industry in Africa more open-minded than in Europe</span></a></li>
-<li><a href="https://medium.com/@amywal"><img src="thumbs/storacha-why.jpg" alt=""><span>More on Medium</span></a></li>
+<li><a href="https://medium.com/@amywal"><span>More on Medium</span></a></li>
 </ul>
 </section>
 
 <section id="talks">
-<h2><span>6</span>Talks</h2>
-<p class="note">Sessions I ran or hosted.</p>
+<h2><span>5</span>Talks</h2>
 <ul class="cards">
 <li><a href="https://youtu.be/1i6_LDYLS7E"><img src="thumbs/yt-1i6_LDYLS7E.jpg" alt=""><span>Unveiling Concordium's Community Engagement Framework: Connect, Create, Innovate</span></a></li>
 <li><a href="https://youtu.be/ZjggvgjmZuE"><img src="thumbs/yt-ZjggvgjmZuE.jpg" alt=""><span>Unlocking the Future: Exploring T3rn Executors and the Multichain Revolution</span></a></li>
@@ -227,8 +184,7 @@ footer p{max-width:62ch}
 </section>
 
 <section id="press">
-<h2><span>7</span>Interviews &amp; press</h2>
-<p class="note">Pieces about me, or conversations I was invited into.</p>
+<h2><span>6</span>Interviews &amp; press</h2>
 <ul class="cards">
 <li><a href="https://time.com/6156672/lgbtq-ukraine-refugees-russia/"><img src="thumbs/time.jpg" alt=""><span>TIME: The LGBTQ Ukrainians Escaping Putin’s War</span></a></li>
 <li><a href="https://tvn24.pl/biznes/tech/kamila-sidor-oraz-amanda-waliszewska-byly-goscmi-tvn24-bis-ra638324-4471026"><img src="thumbs/tvn-article.jpg" alt=""><span>TVN24 Bis: Kamila Sidor oraz Amanda Waliszewska były gośćmi TVN24 Bis</span></a></li>
@@ -237,6 +193,36 @@ footer p{max-width:62ch}
 <li><a href="https://www.youtube.com/watch?v=L5yd829DFFM"><img src="thumbs/yt-L5yd829DFFM.jpg" alt=""><span>Przekraczaj granice. Pracuj gdzie chcesz. #1 Amanda</span></a></li>
 <li><a href="https://www.youtube.com/live/hKGTGIcnX7Q"><img src="thumbs/yt-hKGTGIcnX7Q.jpg" alt=""><span>Seksizm w pracy — Ty też tak masz? Ty też masz dość?</span></a></li>
 <li><a href="https://www.youtube.com/watch?v=EY5yBTEY6Yw"><img src="thumbs/yt-EY5yBTEY6Yw.jpg" alt=""><span>African Developers Conference 2019 — AfriDevCon</span></a></li>
+</ul>
+</section>
+
+<section id="code">
+<h2><span>7</span>Tutorials and demos</h2>
+<ul class="list">
+<li class="box">
+<b><a href="https://github.com/hakierka/liveops-evals">liveops-evals</a></b>
+<span>Eval harness for a fake liveops desk agent. Golden questions, permission leaks, one known miss on refunds.</span>
+<img class="shot" src="shots/liveops-evals.png" alt="Eval scorecard">
+</li>
+<li class="box">
+<b><a href="https://github.com/hakierka/who-uses-this">who-uses-this</a></b>
+<span>480 people on an internal LLM tool. Sixteen segments, named after the email I would send.</span>
+<img class="shot" src="shots/who-uses-this.png" alt="16 adoption segments">
+</li>
+<li class="box">
+<b><a href="https://github.com/hakierka/docs-the-agent-can-read">docs-the-agent-can-read</a></b>
+<span>llms.txt, OpenAPI, error codes, a tiny MCP.</span>
+<img class="shot" src="shots/docs-the-agent-can-read.png" alt="MCP selftest">
+</li>
+</ul>
+<ul class="cols" style="margin-top:18px">
+<li><a href="https://github.com/hakierka/Merkle-Proofs-Tutorial">Merkle Proofs Tutorial</a></li>
+<li><a href="https://github.com/storacha/learnyouw3up">learnyouw3up, a workshopper for Storacha</a></li>
+<li><a href="https://github.com/hakierka/storacha-python-client">Storacha Python client</a></li>
+<li><a href="https://github.com/hakierka/TenderlySDK-example">Tenderly SDK example</a></li>
+<li><a href="https://github.com/hakierka/http-cat-to-web3storage">http-cat-to-web3storage</a></li>
+<li><a href="https://github.com/hakierka/pear-pong">pear-pong</a></li>
+<li><a href="https://github.com/hakierka">All repositories</a></li>
 </ul>
 </section>
 
@@ -250,8 +236,6 @@ footer p{max-width:62ch}
 
 <footer>
 <p>If we ever meet at a conference, I will ask what you are building, talk too fast and drag you to the best coffee nearby. Eventually I will start talking about video games.</p>
-<p>Queer, autistic, ADHD. I write as if the reader missed the meeting. Workshops use the files people already have. Accessibility goes in with the first draft, because I know what it is to hit a wall that was designed for someone else. Poland, then Stockholm. Technology should make people’s lives better.</p>
-<p>I play a lot of games. On a CV that becomes a line about The Last of Us, because there is no room for the rest: live products, messy players, systems that have to keep working after launch. That is also why a fake live game sits in <a href="https://github.com/hakierka/liveops-evals">liveops-evals</a>.</p>
 <p><a href="mailto:amy.waliszewska@gmail.com">amy.waliszewska@gmail.com</a> &nbsp; <a href="https://www.linkedin.com/in/amy-waliszewska/">LinkedIn</a> &nbsp; <a href="https://github.com/hakierka">GitHub</a> &nbsp; <a href="https://medium.com/@amywal">Medium</a> &nbsp; <a href="https://x.com/amywaliszewska">X</a></p>
 </footer>
 </main>
