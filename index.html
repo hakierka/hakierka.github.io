@@ -11,37 +11,58 @@
 <meta property="og:url" content="https://hakierka.github.io/">
 <style>
 :root {
-  --bg: #d6d6d6;            /* Dust Grey */
-  --ink: #202020;           /* Carbon Black */
-  --muted: #333533;         /* Graphite */
-  --link: #202020;
-  --hover-bg: #ffee32;      /* Bright Lemon */
-  --link-hover-ink: #202020;
-  --focus: #202020;
-  --name-bg: #ffd100;       /* Gold */
-  --name-ink: #202020;
-  --border: #333533;
-  --photo-border: #202020;
-  --skip-bg: #ffee32;
-  --skip-ink: #202020;
+  --dust: #d6d6d6;
+  --lemon: #ffee32;
+  --gold: #ffd100;
+  --carbon: #202020;
+  --graphite: #333533;
+
+  --bg: var(--dust);
+  --ink: var(--carbon);
+  --muted: var(--graphite);
+  --link: var(--carbon);
+  --hover-bg: var(--lemon);
+  --link-hover-ink: var(--carbon);
+  --focus: var(--carbon);
+  --name-bg: var(--gold);
+  --name-ink: var(--carbon);
+  --border: var(--carbon);
+  --photo-shadow: var(--carbon);
+  --skip-bg: var(--lemon);
+  --skip-ink: var(--carbon);
+  --nav-bg: var(--dust);
+  --nav-border: var(--carbon);
+  --masthead-bg: var(--lemon);
+  --masthead-border: var(--carbon);
+  --rule: var(--graphite);
+  --spine: var(--graphite);
+  --list-marker: ">";
+  --heading-underline: 4px solid var(--carbon);
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #202020;
-    --ink: #d6d6d6;
-    --muted: #d6d6d6;
-    --link: #ffee32;
-    --hover-bg: #ffee32;
-    --link-hover-ink: #202020;
-    --focus: #ffee32;
-    --name-bg: #ffd100;
-    --name-ink: #202020;
-    --border: #333533;
-    --photo-border: #ffee32;
-    --skip-bg: #ffee32;
-    --skip-ink: #202020;
+    --bg: var(--carbon);
+    --ink: var(--dust);
+    --muted: var(--dust);
+    --link: var(--lemon);
+    --hover-bg: var(--lemon);
+    --link-hover-ink: var(--carbon);
+    --focus: var(--lemon);
+    --name-bg: var(--gold);
+    --name-ink: var(--carbon);
+    --border: var(--graphite);
+    --photo-shadow: var(--lemon);
+    --skip-bg: var(--lemon);
+    --skip-ink: var(--carbon);
+    --nav-bg: var(--carbon);
+    --nav-border: var(--graphite);
+    --masthead-bg: var(--carbon);
+    --masthead-border: transparent;
+    --rule: var(--graphite);
+    --spine: var(--lemon);
+    --heading-underline: none;
     color-scheme: dark;
   }
 }
@@ -69,6 +90,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font: 400 1.0625rem/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow-x: hidden;
 }
 
 .skip-link {
@@ -80,7 +102,7 @@ body {
   color: var(--skip-ink);
   text-decoration: none;
   font-weight: 600;
-  z-index: 10;
+  z-index: 100;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   width: 1px;
@@ -118,10 +140,91 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-main {
+/* Desktop-only vertical name */
+.spine {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .spine {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 0;
+    width: 3.5rem;
+    pointer-events: none;
+    transform: translateY(-50%);
+    font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%) rotate(180deg);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--spine);
+    text-stroke: 1px var(--spine);
+    opacity: 0.28;
+  }
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--nav-bg);
+  border-bottom: 2px solid var(--nav-border);
+  padding: 0.55rem clamp(1rem, 4vw, 1.75rem);
+}
+
+.sticky-nav ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 70ch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+}
+
+.sticky-nav a {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.sticky-nav a:hover {
+  text-decoration: none;
+}
+
+.page-header {
+  background: var(--masthead-bg);
+  border-bottom: 4px solid var(--masthead-border);
+  padding: clamp(1.5rem, 5vh, 2.75rem) clamp(1rem, 4vw, 1.75rem) clamp(1.75rem, 5vh, 2.5rem);
+}
+
+.page-header .wrap {
   max-width: 70ch;
   margin: 0 auto;
-  padding: clamp(2rem, 8vh, 4rem) clamp(1rem, 4vw, 1.75rem) 3rem;
+}
+
+@media (min-width: 900px) {
+  .sticky-nav,
+  .page-header,
+  main {
+    padding-left: max(clamp(1rem, 4vw, 1.75rem), 4.25rem);
+  }
+
+  .sticky-nav ul,
+  .page-header .wrap,
+  main {
+    max-width: calc(70ch + 0px);
+  }
 }
 
 .intro {
@@ -129,7 +232,6 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 1.25rem;
-  margin-bottom: 2.5rem;
 }
 
 .photo {
@@ -137,7 +239,9 @@ main {
   width: 100%;
   max-width: 280px;
   height: auto;
-  border: 3px solid var(--photo-border);
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--photo-shadow);
 }
 
 .copy {
@@ -156,7 +260,6 @@ main {
   font-size: clamp(1.65rem, 6.5vw, 2.35rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
-  box-shadow: 3px 3px 0 var(--photo-border);
 }
 
 .cursor {
@@ -186,12 +289,10 @@ main {
   max-width: 70ch;
 }
 
-.site-nav,
 .contact-nav {
-  margin: 0 0 1rem;
+  margin: 0;
 }
 
-.site-nav ul,
 .contact-nav ul,
 .footer-nav ul {
   list-style: none;
@@ -200,6 +301,14 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem 1.25rem;
+}
+
+main {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: clamp(1.75rem, 5vh, 2.75rem) clamp(1rem, 4vw, 1.75rem) 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 section {
@@ -212,19 +321,27 @@ h3 {
   font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
   font-weight: 700;
   line-height: 1.25;
-  color: var(--ink);
 }
 
+/* Light: style B — Carbon Black text, 4px underline */
 h2 {
   margin: 0 0 0.85rem;
   font-size: clamp(1.25rem, 4vw, 1.5rem);
-  padding-bottom: 0.35rem;
-  border-bottom: 2px solid var(--border);
+  color: var(--carbon);
+  padding-bottom: 0.4rem;
+  border-bottom: var(--heading-underline);
 }
 
 h3 {
   margin: 1.5rem 0 0.65rem;
   font-size: 1.05rem;
+  color: var(--carbon);
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--rule);
+}
+
+section > h3:first-of-type {
+  margin-top: 1rem;
 }
 
 .section-note {
@@ -234,11 +351,22 @@ h3 {
 
 ul.content-list {
   margin: 0;
-  padding-left: 1.2rem;
+  padding: 0;
+  list-style: none;
 }
 
 ul.content-list > li {
   margin: 0 0 0.65rem;
+  padding-left: 1.35em;
+  position: relative;
+}
+
+ul.content-list > li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--ink);
+  font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
 }
 
 ul.content-list > li:last-child {
@@ -252,10 +380,22 @@ ul.content-list > li:last-child {
 
 .side-project {
   margin: 0 0 1.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--rule);
+}
+
+.side-project:first-of-type {
+  margin-top: 0.5rem;
 }
 
 .side-project:last-child {
   margin-bottom: 0;
+}
+
+.side-project h3 {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
 }
 
 .side-project p {
@@ -282,44 +422,96 @@ footer p {
     gap: 1.75rem;
   }
 }
+
+/* Dark: terminal twin */
+@media (prefers-color-scheme: dark) {
+  .page-header {
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: var(--graphite);
+  }
+
+  h2 {
+    color: var(--lemon);
+    border-bottom: 1px dashed var(--graphite);
+    padding-bottom: 0.45rem;
+  }
+
+  h2::before {
+    content: "$ ";
+    color: var(--lemon);
+  }
+
+  h3 {
+    color: var(--lemon);
+    border-top: 1px dashed var(--graphite);
+  }
+
+  h3::before {
+    content: "~/";
+    color: var(--lemon);
+  }
+
+  ul.content-list {
+    font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  ul.content-list > li::before {
+    color: var(--lemon);
+  }
+
+  .photo {
+    border-color: var(--lemon);
+  }
+
+  .sticky-nav a {
+    color: var(--lemon);
+  }
+}
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<main id="main">
-  <header class="intro">
-    <img
-      class="photo"
-      src="photo.jpg"
-      alt="Amy Waliszewska with blue hair, glasses and headphones around her neck"
-      width="800"
-      height="1199"
-      loading="eager">
-    <div class="copy">
-      <h1>Amy Waliszewska</h1><span class="cursor" aria-hidden="true"></span>
-      <p class="lead">I make developers care about products, and make products worth caring about. I write the docs, run the launches, take the stage and look after the community. Lately I do the same for AI: getting people to use the tools, and making sure the tools deserve it.</p>
-      <nav class="contact-nav" aria-label="Contact and profiles">
-        <ul>
-          <li><a href="mailto:amy.waliszewska@gmail.com">Email</a></li>
-          <li><a href="https://www.linkedin.com/in/amywaliszewska">LinkedIn</a></li>
-          <li><a href="https://github.com/hakierka">GitHub</a></li>
-          <li><a href="https://medium.com/@amywal">Medium</a></li>
-        </ul>
-      </nav>
-      <nav class="site-nav" aria-label="On this page">
-        <ul>
-          <li><a href="#highlights">Highlights</a></li>
-          <li><a href="#articles">Articles</a></li>
-          <li><a href="#docs">Docs</a></li>
-          <li><a href="#demos">Demos</a></li>
-          <li><a href="#videos">Videos</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#side-projects">Side projects</a></li>
-        </ul>
-      </nav>
+<div class="spine" aria-hidden="true">AMY WALISZEWSKA</div>
+<nav class="sticky-nav" aria-label="On this page">
+  <ul>
+    <li><a href="#highlights">Highlights</a></li>
+    <li><a href="#articles">Articles</a></li>
+    <li><a href="#docs">Docs</a></li>
+    <li><a href="#demos">Demos</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#side-projects">Side projects</a></li>
+  </ul>
+</nav>
+<header class="page-header">
+  <div class="wrap">
+    <div class="intro">
+      <img
+        class="photo"
+        src="photo.jpg"
+        alt="Amy Waliszewska with blue hair, glasses and headphones around her neck"
+        width="800"
+        height="1199"
+        loading="eager">
+      <div class="copy">
+        <h1>Amy Waliszewska</h1><span class="cursor" aria-hidden="true"></span>
+        <p class="lead">I make developers care about products, and make products worth caring about. I write the docs, run the launches, take the stage and look after the community. Lately I do the same for AI: getting people to use the tools, and making sure the tools deserve it.</p>
+        <nav class="contact-nav" aria-label="Contact and profiles">
+          <ul>
+            <li><a href="mailto:amy.waliszewska@gmail.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/amywaliszewska">LinkedIn</a></li>
+            <li><a href="https://github.com/hakierka">GitHub</a></li>
+            <li><a href="https://medium.com/@amywal">Medium</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-  </header>
-
+  </div>
+</header>
+<main id="main">
   <section id="highlights" aria-labelledby="highlights-heading">
     <h2 id="highlights-heading">Highlights</h2>
     <ul class="content-list">
