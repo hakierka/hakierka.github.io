@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amy Waliszewska, Developer Relations</title>
+<meta name="description" content="Developer relations in Stockholm. I write docs, build demos, run workshops and grow communities. A new portfolio is on its way.">
+<meta property="og:title" content="Amy Waliszewska, Developer Relations">
+<meta property="og:description" content="Developer relations in Stockholm. I write docs, build demos, run workshops and grow communities. A new portfolio is on its way.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hakierka.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+<style>
+:root {
+  --bg: #d6d6d6;
+  --ink: #202020;
+  --muted: #333533;
+  --link: #202020;
+  --hover-bg: #ffee32;
+  --link-hover-ink: #202020;
+  --focus: #202020;
+  --name-bg: #ffd100;
+  --name-ink: #202020;
+  --border: #333533;
+  --photo-border: #202020;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #202020;
+    --ink: #d6d6d6;
+    --muted: #d6d6d6;
+    --link: #ffee32;
+    --hover-bg: #ffee32;
+    --link-hover-ink: #202020;
+    --focus: #ffee32;
+    --name-bg: #ffd100;
+    --name-ink: #202020;
+    --border: #333533;
+    --photo-border: #ffee32;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1.125rem/1.65 "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 12vh, 6rem) clamp(1.25rem, 5vw, 2rem);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border: 3px solid var(--photo-border);
+}
+
+.copy h1 {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.2em 0.35em;
+  background: var(--name-bg);
+  color: var(--name-ink);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 7vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.copy p {
+  margin: 0 0 1.75rem;
+  color: var(--muted);
+  max-width: 34ch;
+}
+
+@media (min-width: 640px) {
+  .intro {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+}
+
+.copy nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.copy nav a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+.copy nav a:hover {
+  background: var(--hover-bg);
+  color: var(--link-hover-ink);
+}
+
+.copy nav a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="intro">
+    <img
+      class="photo"
+      src="photo.jpg"
+      alt="Amy Waliszewska with blue hair, glasses and headphones around her neck"
+      width="800"
+      height="1199"
+      loading="eager">
+    <div class="copy">
+      <h1>Amy Waliszewska</h1>
+      <p>Developer relations in Stockholm. I write docs, build demos, run workshops and grow communities. A new portfolio is on its way.</p>
+      <nav aria-label="Contact and profiles">
+        <ul>
+          <li><a href="mailto:amy.waliszewska@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/amywaliszewska">LinkedIn</a></li>
+          <li><a href="https://github.com/hakierka">GitHub</a></li>
+          <li><a href="https://medium.com/@amywal">Medium</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</main>
+</body>
+</html>
