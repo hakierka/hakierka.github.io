@@ -9,6 +9,16 @@
 <meta property="og:description" content="I make developers care about products, and make products worth caring about. I write the docs, run the launches, take the stage and look after the community.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hakierka.github.io/">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("theme");
+    if (t === "dark" || t === "light") {
+      document.documentElement.setAttribute("data-theme", t);
+    }
+  } catch (e) {}
+})();
+</script>
 <style>
 @font-face {
   font-family: "JetBrains Mono";
@@ -85,43 +95,80 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    --bg: var(--dust);
-    --ink: var(--carbon);
-    --muted: var(--graphite);
-    --link: var(--carbon);
-    --link-hover-bg: var(--lemon);
-    --link-hover-ink: var(--carbon);
-    --focus: var(--carbon);
-    --heading: var(--carbon);
-    --hud-bg: var(--carbon);
-    --hud-ink: var(--lemon);
-    --hud-border: var(--carbon);
-    --panel: var(--dust);
-    --panel-ink: var(--carbon);
-    --chip-bg: var(--carbon);
-    --chip-ink: var(--lemon);
-    --btn-bg: var(--lemon);
-    --btn-ink: var(--carbon);
-    --btn-shadow: var(--carbon);
-    --floor: var(--lemon);
-    --table-line: var(--graphite);
-    --glow: none;
-    --grid: transparent;
-    --scan: transparent;
-    --rank: var(--graphite);
-    --tag: var(--carbon);
-    --entity: var(--carbon);
-    --skip-bg: var(--lemon);
-    --skip-ink: var(--carbon);
-    --name: var(--carbon);
-    --cursor: var(--carbon);
-    --hard-shadow: 4px 4px 0 var(--carbon);
-    --btn-glow: 3px 3px 0 var(--carbon);
-    --cabinet-glow: 3px 3px 0 var(--carbon);
-    --row-tint: rgba(255, 238, 50, 0.4);
-    color-scheme: light;
+  :root:not([data-theme="dark"]) {
+  --bg: var(--dust);
+  --ink: var(--carbon);
+  --muted: var(--graphite);
+  --link: var(--carbon);
+  --link-hover-bg: var(--lemon);
+  --link-hover-ink: var(--carbon);
+  --focus: var(--carbon);
+  --heading: var(--carbon);
+  --hud-bg: var(--carbon);
+  --hud-ink: var(--lemon);
+  --hud-border: var(--carbon);
+  --panel: var(--dust);
+  --panel-ink: var(--carbon);
+  --chip-bg: var(--carbon);
+  --chip-ink: var(--lemon);
+  --btn-bg: var(--lemon);
+  --btn-ink: var(--carbon);
+  --btn-shadow: var(--carbon);
+  --floor: var(--lemon);
+  --table-line: var(--graphite);
+  --glow: none;
+  --grid: transparent;
+  --scan: transparent;
+  --rank: var(--graphite);
+  --tag: var(--carbon);
+  --entity: var(--carbon);
+  --skip-bg: var(--lemon);
+  --skip-ink: var(--carbon);
+  --name: var(--carbon);
+  --cursor: var(--carbon);
+  --hard-shadow: 4px 4px 0 var(--carbon);
+  --btn-glow: 3px 3px 0 var(--carbon);
+  --cabinet-glow: 3px 3px 0 var(--carbon);
+  --row-tint: rgba(255, 238, 50, 0.4);
+  color-scheme: light;
   }
+}
+:root[data-theme="light"] {
+  --bg: var(--dust);
+  --ink: var(--carbon);
+  --muted: var(--graphite);
+  --link: var(--carbon);
+  --link-hover-bg: var(--lemon);
+  --link-hover-ink: var(--carbon);
+  --focus: var(--carbon);
+  --heading: var(--carbon);
+  --hud-bg: var(--carbon);
+  --hud-ink: var(--lemon);
+  --hud-border: var(--carbon);
+  --panel: var(--dust);
+  --panel-ink: var(--carbon);
+  --chip-bg: var(--carbon);
+  --chip-ink: var(--lemon);
+  --btn-bg: var(--lemon);
+  --btn-ink: var(--carbon);
+  --btn-shadow: var(--carbon);
+  --floor: var(--lemon);
+  --table-line: var(--graphite);
+  --glow: none;
+  --grid: transparent;
+  --scan: transparent;
+  --rank: var(--graphite);
+  --tag: var(--carbon);
+  --entity: var(--carbon);
+  --skip-bg: var(--lemon);
+  --skip-ink: var(--carbon);
+  --name: var(--carbon);
+  --cursor: var(--carbon);
+  --hard-shadow: 4px 4px 0 var(--carbon);
+  --btn-glow: 3px 3px 0 var(--carbon);
+  --cabinet-glow: 3px 3px 0 var(--carbon);
+  --row-tint: rgba(255, 238, 50, 0.4);
+  color-scheme: light;
 }
 
 *,
@@ -162,12 +209,6 @@ body::before {
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 28px 28px;
-}
-
-@media (prefers-color-scheme: light) {
-  body::before {
-    display: none;
-  }
 }
 
 .skip-link {
@@ -250,12 +291,6 @@ a:focus-visible {
   );
 }
 
-@media (prefers-color-scheme: light) {
-  .hud::after {
-    display: none;
-  }
-}
-
 .hud-brand {
   font-family: "Silkscreen", "JetBrains Mono", monospace;
   font-weight: 700;
@@ -264,6 +299,60 @@ a:focus-visible {
   text-transform: uppercase;
   color: var(--hud-ink);
   white-space: nowrap;
+}
+
+.hud-end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.85rem;
+  margin-left: auto;
+  min-width: 0;
+}
+
+.theme-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0.25rem 0.45rem;
+  font-family: "Silkscreen", "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--hud-ink);
+  background: transparent;
+  border: 2px solid var(--hud-ink);
+  cursor: pointer;
+  box-shadow: none;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  box-shadow: 2px 2px 0 var(--hud-ink);
+  transform: translate(-2px, -2px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--lemon);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle {
+    transition: none;
+  }
+  .theme-toggle:hover {
+    transform: none;
+    box-shadow: 2px 2px 0 var(--hud-ink);
+  }
+}
+
+@media (max-width: 560px) {
+  .hud-end {
+    width: 100%;
+  }
 }
 
 .hud-nav {
@@ -301,7 +390,6 @@ a:focus-visible {
     content: "";
   }
   .hud-nav {
-    width: 100%;
     row-gap: 0.4rem;
   }
 }
@@ -312,13 +400,6 @@ a:focus-visible {
   isolation: isolate;
   padding: clamp(1rem, 3vh, 1.75rem) clamp(0.75rem, 3vw, 1.5rem) clamp(1.25rem, 4vh, 2rem);
   border-bottom: 2px solid var(--hud-border);
-}
-
-@media (prefers-color-scheme: light) {
-  .hero {
-    background: var(--lemon);
-    border-bottom: 4px solid var(--carbon);
-  }
 }
 
 .hero::after {
@@ -334,12 +415,6 @@ a:focus-visible {
     var(--scan) 2px,
     var(--scan) 3px
   );
-}
-
-@media (prefers-color-scheme: light) {
-  .hero::after {
-    display: none;
-  }
 }
 
 .hero-inner {
@@ -449,17 +524,6 @@ a:focus-visible {
 .coin:nth-child(3) { top: 46%; left: -2%; animation-delay: 0.9s; }
 .coin:nth-child(4) { top: 4%; right: 24%; animation-delay: 1.3s; }
 
-@media (prefers-color-scheme: light) {
-  .coin {
-    box-shadow: inset -2px -2px 0 var(--gold);
-  }
-  /* Keep lemon coins on lemon cabinet/floor — not floating on Dust Grey */
-  .coin:nth-child(1) { top: 58%; left: 10%; }
-  .coin:nth-child(2) { top: 64%; right: 8%; }
-  .coin:nth-child(3) { top: 74%; left: 20%; }
-  .coin:nth-child(4) { top: 52%; right: 18%; }
-}
-
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -538,15 +602,9 @@ a:focus-visible {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 3px solid var(--carbon);
+  border: 3px solid var(--lemon);
   box-shadow: var(--btn-glow);
   transition: box-shadow 0.08s linear, transform 0.08s linear;
-}
-
-@media (prefers-color-scheme: dark) {
-  .press-start {
-    border-color: var(--lemon);
-  }
 }
 
 .press-start::before {
@@ -644,15 +702,6 @@ h2 {
   border: 3px solid var(--carbon);
   box-sizing: border-box;
   width: 100%;
-}
-
-@media (prefers-color-scheme: light) {
-  h2 {
-    background: var(--carbon);
-    color: var(--lemon);
-    text-shadow: none;
-    border-color: var(--carbon);
-  }
 }
 
 h3 {
@@ -767,14 +816,6 @@ h3 {
   border: 3px solid var(--carbon);
   background: color-mix(in srgb, var(--graphite) 35%, transparent);
   box-shadow: 4px 4px 0 var(--gold);
-}
-
-@media (prefers-color-scheme: light) {
-  .theme-panel {
-    background: color-mix(in srgb, var(--lemon) 12%, var(--dust));
-    border-color: var(--carbon);
-    box-shadow: 4px 4px 0 var(--carbon);
-  }
 }
 
 .theme-panel h3 {
@@ -918,13 +959,6 @@ h3 {
   vertical-align: middle;
 }
 
-@media (prefers-color-scheme: light) {
-  .role-label {
-    background: var(--carbon);
-    color: var(--lemon);
-  }
-}
-
 /* Events roster */
 .roster {
   width: 100%;
@@ -988,13 +1022,6 @@ h3 {
   box-shadow: var(--hard-shadow);
 }
 
-@media (prefers-color-scheme: light) {
-  .bonus-card {
-    background: var(--dust);
-    box-shadow: 2px 2px 0 var(--carbon);
-  }
-}
-
 .bonus-card h3 {
   margin: 0 0 0.5rem;
   text-shadow: var(--glow);
@@ -1025,6 +1052,87 @@ footer {
 .footer-nav a {
   text-transform: none;
 }
+
+/* —— Light theme surfaces: system light without dark override, OR explicit light —— */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) body::before,
+  :root:not([data-theme="dark"]) .hud::after,
+  :root:not([data-theme="dark"]) .hero::after {
+    display: none;
+  }
+  :root:not([data-theme="dark"]) .hero {
+    background: var(--lemon);
+    border-bottom: 4px solid var(--carbon);
+  }
+  :root:not([data-theme="dark"]) .coin {
+    box-shadow: inset -2px -2px 0 var(--gold);
+  }
+  /* Keep lemon coins on lemon cabinet/floor — not floating on Dust Grey */
+  :root:not([data-theme="dark"]) .coin:nth-child(1) { top: 58%; left: 10%; }
+  :root:not([data-theme="dark"]) .coin:nth-child(2) { top: 64%; right: 8%; }
+  :root:not([data-theme="dark"]) .coin:nth-child(3) { top: 74%; left: 20%; }
+  :root:not([data-theme="dark"]) .coin:nth-child(4) { top: 52%; right: 18%; }
+  :root:not([data-theme="dark"]) .press-start {
+    border-color: var(--carbon);
+  }
+  :root:not([data-theme="dark"]) h2 {
+    background: var(--carbon);
+    color: var(--lemon);
+    text-shadow: none;
+    border-color: var(--carbon);
+  }
+  :root:not([data-theme="dark"]) .theme-panel {
+    background: color-mix(in srgb, var(--lemon) 12%, var(--dust));
+    border-color: var(--carbon);
+    box-shadow: 4px 4px 0 var(--carbon);
+  }
+  :root:not([data-theme="dark"]) .role-label {
+    background: var(--carbon);
+    color: var(--lemon);
+  }
+  :root:not([data-theme="dark"]) .bonus-card {
+    background: var(--dust);
+    box-shadow: 2px 2px 0 var(--carbon);
+  }
+}
+:root[data-theme="light"] body::before,
+:root[data-theme="light"] .hud::after,
+:root[data-theme="light"] .hero::after {
+  display: none;
+}
+:root[data-theme="light"] .hero {
+  background: var(--lemon);
+  border-bottom: 4px solid var(--carbon);
+}
+:root[data-theme="light"] .coin {
+  box-shadow: inset -2px -2px 0 var(--gold);
+}
+:root[data-theme="light"] .coin:nth-child(1) { top: 58%; left: 10%; }
+:root[data-theme="light"] .coin:nth-child(2) { top: 64%; right: 8%; }
+:root[data-theme="light"] .coin:nth-child(3) { top: 74%; left: 20%; }
+:root[data-theme="light"] .coin:nth-child(4) { top: 52%; right: 18%; }
+:root[data-theme="light"] .press-start {
+  border-color: var(--carbon);
+}
+:root[data-theme="light"] h2 {
+  background: var(--carbon);
+  color: var(--lemon);
+  text-shadow: none;
+  border-color: var(--carbon);
+}
+:root[data-theme="light"] .theme-panel {
+  background: color-mix(in srgb, var(--lemon) 12%, var(--dust));
+  border-color: var(--carbon);
+  box-shadow: 4px 4px 0 var(--carbon);
+}
+:root[data-theme="light"] .role-label {
+  background: var(--carbon);
+  color: var(--lemon);
+}
+:root[data-theme="light"] .bonus-card {
+  background: var(--dust);
+  box-shadow: 2px 2px 0 var(--carbon);
+}
 </style>
 </head>
 <body>
@@ -1032,17 +1140,20 @@ footer {
 
 <header class="hud" role="banner">
   <div class="hud-brand" aria-hidden="true">1UP AMY</div>
-  <nav aria-label="On this page">
-    <ul class="hud-nav">
-      <li><a href="#highlights">Highlights</a></li>
-      <li><a href="#articles">Articles</a></li>
-      <li><a href="#docs">Docs</a></li>
-      <li><a href="#demos">Demos</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#side-projects">Side projects</a></li>
-    </ul>
-  </nav>
+  <div class="hud-end">
+    <button type="button" class="theme-toggle" hidden aria-pressed="true" aria-label="Switch color theme">THEME: DARK</button>
+    <nav aria-label="On this page">
+      <ul class="hud-nav">
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li><a href="#docs">Docs</a></li>
+        <li><a href="#demos">Demos</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#side-projects">Side projects</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <section class="hero" aria-label="Introduction">
@@ -1275,5 +1386,35 @@ footer {
     </nav>
   </footer>
 </main>
+
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle");
+  if (!btn) return;
+  btn.removeAttribute("hidden");
+  function current() {
+    var d = document.documentElement.getAttribute("data-theme");
+    if (d === "dark" || d === "light") return d;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  function sync() {
+    var t = current();
+    btn.textContent = "THEME: " + t.toUpperCase();
+    btn.setAttribute("aria-pressed", t === "dark" ? "true" : "false");
+  }
+  sync();
+  btn.addEventListener("click", function () {
+    var next = current() === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    sync();
+  });
+  try {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+      if (!document.documentElement.hasAttribute("data-theme")) sync();
+    });
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>
