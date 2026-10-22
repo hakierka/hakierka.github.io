@@ -13,9 +13,9 @@ A single-page portfolio with a retro pixel look: silver desktop windows, an arca
 ## Features
 
 - **Dark and light theme:** follows the system setting automatically. A toggle remembers your choice in `localStorage`. Without JavaScript, the system theme still applies through CSS.
-- **Arcade design:** Silver window bars and bevelled buttons, a halftone grey background, pixel sprites in `assets/`. JetBrains Mono and Silkscreen, self-hosted.
-- **Accessible:** skip link, visible focus, keyboard navigation, WCAG AA contrast checked, `prefers-reduced-motion` respected, readable at 360px wide.
-- **Fast and private:** one HTML file, no build, no framework, no external requests, no tracking. About 144 KB with fonts and the avatar.
+- **Retro pixel look:** Silver window bars and bevelled buttons, a halftone grey background, pixel sprites in `assets/`. JetBrains Mono and Silkscreen, self-hosted.
+- **Accessible:** skip link, visible focus, keyboard navigation, `prefers-reduced-motion` respected, readable at 360px wide. Body text meets WCAG AA contrast in both themes. The big name in the hero is a graphic title from my LinkedIn cover and has lower contrast (about 2:1).
+- **Fast and private:** one HTML file, no build, no framework, no external requests, no tracking. About 255 KB in total (HTML, fonts, avatar and sprites).
 
 ## Run locally
 
@@ -37,6 +37,7 @@ Opening `index.html` from disk also works.
 index.html
 avatar.png
 fonts/
+assets/
 docs/
 ```
 
@@ -49,7 +50,7 @@ docs/
 | `--silver` | `#c0c0c0` | Window bars and bevelled buttons |
 | `--lemon` | `#ffee32` | Headings and links in dark mode; accents |
 | `--gold` | `#ffd100` | Hard shadows in dark mode |
-| | `#000` | Outlines |
+| `--shadow` | `#000` | Light theme: outlines and hard shadows; dark theme uses `#ffd100` |
 | `--ink` | `#e6e6e6` | Body text in dark mode |
 | `--ink` | `#141414` | Body text in light mode |
 | `--panel` | `#262626` | Panels in dark mode |
