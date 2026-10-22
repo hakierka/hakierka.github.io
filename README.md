@@ -41,6 +41,8 @@ assets/
 docs/
 ```
 
+`assets/` holds pixel sprites: dino, clouds, ground. The cacti are drawn as inline SVG in `index.html`.
+
 ## Palette
 
 | Name | Hex | Where used |
