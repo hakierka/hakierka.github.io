@@ -9,6 +9,16 @@
 <meta property="og:description" content="I make developers care about products, and make products worth caring about. I write the docs, run the launches, take the stage and look after the community.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hakierka.github.io/">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("theme");
+    if (t === "dark" || t === "light") {
+      document.documentElement.setAttribute("data-theme", t);
+    }
+  } catch (e) {}
+})();
+</script>
 <style>
 
 @font-face{font-family:"JetBrains Mono";src:url("fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
