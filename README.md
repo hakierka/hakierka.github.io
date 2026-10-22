@@ -8,12 +8,12 @@ Live site: [hakierka.github.io](https://hakierka.github.io)
 
 ## What it is
 
-A single-page portfolio with an arcade look. It lists articles, docs, demos, videos and events. One HTML file, no build step.
+A single-page portfolio with a retro pixel look: silver desktop windows, an arcade-style hero and a dino on the ground. It lists articles, docs, demos, videos and events. One HTML file, no build step.
 
 ## Features
 
 - **Dark and light theme:** follows the system setting automatically. A toggle remembers your choice in `localStorage`. Without JavaScript, the system theme still applies through CSS.
-- **Arcade design:** Dust Grey, Bright Lemon, Gold, Carbon Black and Graphite. JetBrains Mono and Silkscreen, self-hosted.
+- **Arcade design:** Silver window bars and bevelled buttons, a halftone grey background, pixel sprites in `assets/`. JetBrains Mono and Silkscreen, self-hosted.
 - **Accessible:** skip link, visible focus, keyboard navigation, WCAG AA contrast checked, `prefers-reduced-motion` respected, readable at 360px wide.
 - **Fast and private:** one HTML file, no build, no framework, no external requests, no tracking. About 144 KB with fonts and the avatar.
 
@@ -44,11 +44,16 @@ docs/
 
 | Name | Hex | Where used |
 | --- | --- | --- |
-| Dust Grey | `#d6d6d6` | Light background; body text in dark mode |
-| Bright Lemon | `#ffee32` | Headings and links in dark mode; buttons; accents |
-| Gold | `#ffd100` | Hard shadows and button glow in dark mode |
-| Carbon Black | `#202020` | Dark background; body text in light mode; HUD bar |
-| Graphite | `#333533` | Panels and borders; muted text in light mode |
+| `--bg` | `#d9d9d9` | Light page background |
+| `--bg` | `#1b1b1b` | Dark page background |
+| `--silver` | `#c0c0c0` | Window bars and bevelled buttons |
+| `--lemon` | `#ffee32` | Headings and links in dark mode; accents |
+| `--gold` | `#ffd100` | Hard shadows in dark mode |
+| | `#000` | Outlines |
+| `--ink` | `#e6e6e6` | Body text in dark mode |
+| `--ink` | `#141414` | Body text in light mode |
+| `--panel` | `#262626` | Panels in dark mode |
+| `--panel` | `#ececec` | Panels in light mode |
 
 ## Credits and license
 
